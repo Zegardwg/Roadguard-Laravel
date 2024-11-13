@@ -31,3 +31,9 @@ Route::get('/api/posts/{id}', [PostController::class, 'show'])->name('posts.show
 Route::get('/api/admin/{id}', [PostController::class, 'show'])->name('posts.show'); 
 Route::get('/api/superadmin/{id}', [PostController::class, 'show'])->name('posts.show'); 
 Route::get('/api/pemantau/{id}', [PostController::class, 'show'])->name('posts.show'); 
+
+// Route untuk update post berdasarkan ID 
+Route::put('/api/posts/update/{id}', [PostController::class, 'update'])->name('posts.update');
+Route::put('/api/admin/update/{id}', [PostController::class, 'update'])->name('posts.update');
+Route::put('/api/superadmin/update/{id}', [PostController::class, 'update'])->name('posts.update');
+Route::put('/api/pemantau/update/{id}', [PostController::class, 'update'])->name('posts.update');

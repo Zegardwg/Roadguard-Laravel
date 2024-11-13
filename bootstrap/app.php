@@ -22,6 +22,11 @@ return Application::configure(basePath: dirname(__DIR__))
             '/api/admin/{id}' , // untuk bagian ini ditambahkan karena kita membuat routes baru
             '/api/superadmin/{id}' , // untuk bagian ini ditambahkan karena kita membuat routes baru
             '/api/pemantau/{id}' , // untuk bagian ini ditambahkan karena kita membuat routes baru
+
+            '/api/posts/*', // Semua URL yang berhubungan dengan posts dikecualikan dari CSRF
+            '/api/admin/*', // Semua URL yang berhubungan dengan posts dikecualikan dari CSRF
+            '/api/superadmin/*', // Semua URL yang berhubungan dengan posts dikecualikan dari CSRF
+            '/api/pemantau/*', // Semua URL yang berhubungan dengan posts dikecualikan dari CSRF
         ]); 
     })
     ->withExceptions(function (Exceptions $exceptions) {

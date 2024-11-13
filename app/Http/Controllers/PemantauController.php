@@ -8,6 +8,30 @@ use Illuminate\Http\JsonResponse;
 
 class PemantauController extends Controller
 {
+    public function update(Request $request, $id) 
+    { 
+        // Validasi data yang dikirimkan 
+        $request->validate([ 
+            'title' => 'sometimes|string|max:255', // 'sometimes' berarti opsional 
+            'content' => 'sometimes|string', 
+        ]); 
+ 
+ 
+        // Cari post berdasarkan ID 
+        $post = PemantauModel::find($id); 
+ 
+        // Jika post tidak ditemukan, kembalikan respons error 
+        if (!$post) { 
+            return response()->json(['message' => 'Post not found'], 404); 
+        } 
+ 
+        // Update data post dengan data yang dikirim 
+        $post->update($request->only(['title', 'content'])); 
+ 
+        // Kembalikan respons JSON yang menunjukkan sukses 
+        return response()->json(['message' => 'Post berhasil diperbarui!', 'data' => $post], 200); 
+    }
+
     public function show($id): JsonResponse 
     { 
         // Cari data berdasarkan custom_id 
