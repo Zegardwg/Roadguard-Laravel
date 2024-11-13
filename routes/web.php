@@ -20,3 +20,14 @@ Route::post('/api/superadmin', [SuperadminController::class, 'create'])->name('p
 Route::post('/api/pemantau', [PemantauController::class, 'create'])->name('posts.create'); 
 // api/posts  alamat link 
     
+// Route untuk mendapatkan semua post 
+Route::get('/api/posts', [PostController::class, 'index'])->name('posts.index'); 
+Route::get('/api/admin', [PostController::class, 'index'])->name('posts.index'); 
+Route::get('/api/superadmin', [PostController::class, 'index'])->name('posts.index'); 
+Route::get('/api/pemantau', [PostController::class, 'index'])->name('posts.index'); 
+ 
+// Route untuk mendapatkan satu post berdasarkan ID 
+Route::get('/api/posts/{id}', [PostController::class, 'show'])->name('posts.show'); 
+Route::get('/api/admin/{id}', [PostController::class, 'show'])->name('posts.show'); 
+Route::get('/api/superadmin/{id}', [PostController::class, 'show'])->name('posts.show'); 
+Route::get('/api/pemantau/{id}', [PostController::class, 'show'])->name('posts.show'); 

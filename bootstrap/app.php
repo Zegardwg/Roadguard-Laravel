@@ -17,6 +17,11 @@ return Application::configure(basePath: dirname(__DIR__))
             '/api/admin', //untuk bagian ini sesuaikan dengan routes masing masing 
             '/api/superadmin', //untuk bagian ini sesuaikan dengan routes masing masing 
             '/api/pemantau', //untuk bagian ini sesuaikan dengan routes masing masing 
+            
+            '/api/posts/{id}' , // untuk bagian ini ditambahkan karena kita membuat routes baru
+            '/api/admin/{id}' , // untuk bagian ini ditambahkan karena kita membuat routes baru
+            '/api/superadmin/{id}' , // untuk bagian ini ditambahkan karena kita membuat routes baru
+            '/api/pemantau/{id}' , // untuk bagian ini ditambahkan karena kita membuat routes baru
         ]); 
     })
     ->withExceptions(function (Exceptions $exceptions) {
