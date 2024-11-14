@@ -27,6 +27,11 @@ return Application::configure(basePath: dirname(__DIR__))
             '/api/admin/*', // Semua URL yang berhubungan dengan posts dikecualikan dari CSRF
             '/api/superadmin/*', // Semua URL yang berhubungan dengan posts dikecualikan dari CSRF
             '/api/pemantau/*', // Semua URL yang berhubungan dengan posts dikecualikan dari CSRF
+
+            '/api/posts/*', // Semua URL yang berhubungan dengan posts dikecualikan dari CSRF
+            '/api/admin/*', // Semua URL yang berhubungan dengan posts dikecualikan dari CSRF
+            '/api/superadmin/*', // Semua URL yang berhubungan dengan posts dikecualikan dari CSRF
+            '/api/pemantau/*', // Semua URL yang berhubungan dengan posts dikecualikan dari CSRF
         ]); 
     })
     ->withExceptions(function (Exceptions $exceptions) {

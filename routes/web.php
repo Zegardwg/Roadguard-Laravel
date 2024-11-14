@@ -37,3 +37,9 @@ Route::put('/api/posts/update/{id}', [PostController::class, 'update'])->name('p
 Route::put('/api/admin/update/{id}', [PostController::class, 'update'])->name('posts.update');
 Route::put('/api/superadmin/update/{id}', [PostController::class, 'update'])->name('posts.update');
 Route::put('/api/pemantau/update/{id}', [PostController::class, 'update'])->name('posts.update');
+
+// Route untuk delete post berdasarkan ID 
+Route::delete('/api/posts/delete/{id}', [PostController::class, 'delete'])->name('posts.delete');
+Route::delete('/api/admin/delete/{id}', [PostController::class, 'delete'])->name('posts.delete');
+Route::delete('/api/superadmin/delete/{id}', [PostController::class, 'delete'])->name('posts.delete');
+Route::delete('/api/pemantau/delete/{id}', [PostController::class, 'delete'])->name('posts.delete');

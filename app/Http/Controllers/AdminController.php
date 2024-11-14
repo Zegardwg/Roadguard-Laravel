@@ -8,6 +8,22 @@ use Illuminate\Http\JsonResponse;
 
 class AdminController extends Controller
 {
+    public function delete($id) 
+    { 
+        // Cari post berdasarkan ID 
+        $post = AdminModel::find($id); 
+ 
+        // Jika post tidak ditemukan, kembalikan respons error 
+        if (!$post) { 
+            return response()->json(['message' => 'Post not found'], 404); 
+        } 
+ 
+        // Hapus data post 
+        $post->delete(); 
+       // Kembalikan respons JSON yang menunjukkan sukses 
+        return response()->json(['message' => 'Post berhasil dihapus!'], 200); 
+    } 
+    
     public function update(Request $request, $id) 
     { 
         // Validasi data yang dikirimkan 
@@ -48,11 +64,11 @@ class AdminController extends Controller
 
     public function index(): JsonResponse 
     { 
-        // Ambil semua data dari tabel posts 
-        $posts = AdminModel::all(); 
+        // Ambil semua data dari tabel admin 
+        $admin = AdminModel::all(); 
         
         // Kembalikan data dalam format JSON 
-        return response()->json(['data' => $posts], 200); 
+        return response()->json(['data' => $admin], 200); 
     } 
 
     public function create(Request $request) 

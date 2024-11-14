@@ -8,6 +8,22 @@ use Illuminate\Http\JsonResponse;
 
 class SuperadminController extends Controller
 {
+    public function delete($id) 
+    { 
+        // Cari post berdasarkan ID 
+        $post = SuperadminModel::find($id); 
+ 
+        // Jika post tidak ditemukan, kembalikan respons error 
+        if (!$post) { 
+            return response()->json(['message' => 'Post not found'], 404); 
+        } 
+ 
+        // Hapus data post 
+        $post->delete(); 
+       // Kembalikan respons JSON yang menunjukkan sukses 
+        return response()->json(['message' => 'Post berhasil dihapus!'], 200); 
+    } 
+    
     public function update(Request $request, $id) 
     { 
         // Validasi data yang dikirimkan 
