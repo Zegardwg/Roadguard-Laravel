@@ -7,7 +7,9 @@ use App\Http\Controllers\PenggunaController; // panggil
 use App\Http\Controllers\AdminController; // panggil 
 use App\Http\Controllers\SuperadminController; // panggil 
 use App\Http\Controllers\PemantauController; // panggil 
- 
+use App\Http\Controllers\AuthController; // panggil controllernya 
+
+
  
 Route::get('/', function () { 
     return view('welcome'); 
@@ -43,3 +45,8 @@ Route::delete('/api/posts/delete/{id}', [PostController::class, 'delete'])->name
 Route::delete('/api/admin/delete/{id}', [PostController::class, 'delete'])->name('posts.delete');
 Route::delete('/api/superadmin/delete/{id}', [PostController::class, 'delete'])->name('posts.delete');
 Route::delete('/api/pemantau/delete/{id}', [PostController::class, 'delete'])->name('posts.delete');
+
+// bagian auth 
+Route::post('/auth/register', [AuthController::class, 'register'])->name('register'); 
+Route::post('/auth/login', [AuthController::class, 'login'])->name('login'); 
+Route::post('/auth/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum')->name('logout'); 
